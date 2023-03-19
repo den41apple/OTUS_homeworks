@@ -22,9 +22,7 @@ PRIME = "prime"
 
 
 def is_prime(number: int) -> bool:
-    """
-    Производит проверку на простое число
-    """
+    """Производит проверку на простое число"""
     if number <= 1:
         return False
     for i in range(2, (number // 2) + 1):
@@ -45,8 +43,8 @@ def filter_numbers(numbers: list, filter_type: str) -> List[int]:
     [2, 4]
     """
     if filter_type == ODD:
-        return [el for el in numbers if el % 2 != 0]
+        return list(filter(lambda x: x % 2 != 0, numbers))
     elif filter_type == EVEN:
-        return [el for el in numbers if el % 2 == 0]
+        return list(filter(lambda x: x % 2 == 0, numbers))
     elif filter_type == PRIME:
-        return [el for el in numbers if is_prime(el)]
+        return list(filter(is_prime, numbers))
