@@ -64,3 +64,4 @@ class TestPlane:
         cargo = plane.max_cargo
         plane.load_cargo(cargo)
         assert plane.cargo == cargo
+
