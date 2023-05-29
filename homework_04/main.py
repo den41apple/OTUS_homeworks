@@ -19,7 +19,7 @@ from jsonplaceholder_requests import fetch_posts_data, fetch_users_data
 
 
 def create_users(session: AsyncSession, users_data: list[dict]):
-    """Создание пользователей"""
+    """Создание пользователей """
     for user in users_data:
         user = User(id=int(user['id']), name=user['name'], username=user['username'], email=user['email'])
         session.add(user)
