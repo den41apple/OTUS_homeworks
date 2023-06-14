@@ -22,7 +22,3 @@ async def fetch_posts_data() -> list[dict]:
             posts = await response.json()
     return posts
 
-
-import asyncio
-asyncio.run(fetch_users_data())  # TODO: удалить
-asyncio.run(fetch_posts_data())  # TODO: удалить
