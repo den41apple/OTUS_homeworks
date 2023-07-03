@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Post #{{ post.id }} info
+{% endblock %}
+{% from 'macros/show-flashed-messages.html' import show_flashed_messages_with_categories %}
+{% block body %}
+    {{ show_flashed_messages_with_categories("dark") }}
+    <h2>Post details:</h2>
+    <h3>"{{ post.title }}" </h3>
+    <p>{{ post.body }} </p>
+    <div>
+        <a href="{{ url_for('posts_app.confirm-delete', post_id=post.id) }}">
+            Delete post
+        </a>
+    </div>
+    <div class="space-top no-underline">
+        <a href="{{ url_for('posts_app.list') }}" class="no-underline">
+            Back to posts list
+        </a>
+    </div>
+{% endblock %}

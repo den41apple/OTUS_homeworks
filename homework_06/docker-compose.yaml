@@ -1,0 +1,37 @@
+version: "3.9"
+name: homework_06
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    environment:
+      SQLALCHEMY_DATABASE_URI: postgresql://username:passwd@pg:5432/postgres
+    ports:
+      - "8080:80"
+    depends_on:
+      pg:
+        condition: service_healthy
+    volumes:
+      - ./:/app
+
+
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_DB: blog
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: passwd
+      PGDATA: /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+volumes:
+  db-data:
