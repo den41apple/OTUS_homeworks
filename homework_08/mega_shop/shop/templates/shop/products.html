@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Products
+{% endblock %}
+
+{% block body %}
+    <h3>Products</h3>
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{% url 'shop:product' pk=product.pk %}">
+                    <code>${{ product.price }}</code>
+
+                    [{{ product.category.name }}]
+                    -
+                    {{ product.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div>
+    <a class="btn btn-primary" href="{% url 'shop:index' %}">Back to shop</a>
+    </div>
+{% endblock %}
