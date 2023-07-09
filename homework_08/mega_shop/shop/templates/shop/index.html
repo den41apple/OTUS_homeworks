@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Mega Shop
+{% endblock %}
+
+{% block body %}
+  <div>
+    <h1>Mega Shop</h1>
+    <ul>
+      <li>
+        <a href="{% url 'shop:products' %}">Products</a>
+      </li>
+      <li>
+        <a href="{% url 'shop:categories' %}">Categories</a>
+      </li>
+    </ul>
+  </div>
+{% endblock %}

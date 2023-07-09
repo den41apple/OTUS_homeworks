@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Shom index
+{% endblock %}
+
+{% block body %}
+    <div>
+        <h1>Shp index</h1>
+    <h3>Products</h3>
+    <ul>
+        {% for product in products %}
+        <li>
+            {{ product.name }}
+        <code> - ${{ product.price }}</code>
+        [{{ product.category.name }}]
+        </li>
+        {% endfor %}
+        
+    </ul>
+    </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Product #{{ product.pk }}
+{% endblock %}
+
+{% block body %}
+    <h1>Product #{{ product.pk }} details</h1>
+    <h2><code>{{ product.name }}</code></h2>
+    <h3>Price:</h3> <p>${{ product.price }}</p>
+    <h3>Discount:</h3> <p>{{ product.discount }} %</p>
+    <h3>Expiration date:</h3> <p>{{ product.expiration_date }} </p>
+    <h3>Description:</h3>
+    <p>{{ product.description }}</p>
+
+    <div>
+        <a class="btn btn-primary" href="{% url 'shop:products' %}"><- Back to products</a>
+    </div>
+{% endblock %}

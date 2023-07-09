@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Categories tree
+{% endblock %}
+
+{% block body %}
+    <h1>Categories</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                {{ category.name }}
+            </li>
+
+            <ul>
+                {% for product in category.producs.all %}
+                    <li>
+                        {{ product.name }}
+                        <code>${{ product.price }}</code>
+                        -
+                        {{ product.name }}
+                    </li>
+                {% endfor %}
+
+            </ul>
+
+        {% endfor %}
+
+    </ul>
+{% endblock %}
